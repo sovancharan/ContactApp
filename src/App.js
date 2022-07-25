@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
+import AddContact from './Componant/AddContact';
+import EditContact from './Componant/EditContact';
+import Home from './Componant/Home';
+import BtNavbar from './Componant/Navbar';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <ToastContainer />
+            <BtNavbar />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/add" element={<AddContact/>} />
+                    <Route path='/edit/:id' element={<EditContact/>}/>
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;
